@@ -2,7 +2,8 @@ import random
 
 print('Welcome to password generator!\n')
 
-#file = open("WordList.txt")
+#*This Script will generate a random password based on the 'WordList.txt' file.
+#*The file should be in '012345 word' format to work on this script.
 
 def getRandNumbers():
     number = []
