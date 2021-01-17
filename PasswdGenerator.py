@@ -16,14 +16,23 @@ def getRandNumbers():
         numbers = ""
     return number
 
-numbers = getRandNumbers()
+def getWords():
+    words = ""
+    numbers = getRandNumbers()
+    for x in numbers:
+        with open("WordList.txt", "rt") as file:
+            wordList = file.read()
+            lines = wordList.split("\n")
+            for i in lines:
+                values = i.split('\t')
+                if values[0] == x:
+                    word = values[1]
+                    words += word
+    return words
 
-for x in numbers:
-    with open("WordList.txt", "rt") as file:
-        wordList = file.read()
-        lines = wordList.split("\n")
-        for i in lines:
-            values = i.split('\t')
-            if values[0] == x:
-                print(values[1])
-                
+def getSpecialChars():
+    chars = ['!','@','#','$','%','^','&','*','_','-','|','/','?',',','.','`','~','=','+']
+    randNumber = random.randint(0,len(chars))
+    return chars[randNumber]
+
+print(getWords()+getSpecialChars())
