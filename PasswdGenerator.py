@@ -1,12 +1,13 @@
 import random
 
 print('Welcome to password generator!\n')
-WordNumber = input('Please input the number of words to use in password: ')
-file = open("WordList.txt")
+
+#file = open("WordList.txt")
 
 def getRandNumbers():
     number = []
     numbers = ""
+    WordNumber = input('Please input the number of words to use in password: ')
     for x in range(int(WordNumber)):
         for i in range(5):
             digit = random.randint(1,6)
@@ -16,5 +17,13 @@ def getRandNumbers():
     return number
 
 numbers = getRandNumbers()
-print(numbers)
 
+for x in numbers:
+    with open("WordList.txt", "rt") as file:
+        wordList = file.read()
+        lines = wordList.split("\n")
+        for i in lines:
+            values = i.split('\t')
+            if values[0] == x:
+                print(values[1])
+                
