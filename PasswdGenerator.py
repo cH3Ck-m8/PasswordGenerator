@@ -35,4 +35,12 @@ def getSpecialChars():
     randNumber = random.randint(0,len(chars))
     return chars[randNumber]
 
-print(getWords()+getSpecialChars())
+def getNumbers():
+    numbers = ""
+    NumberInput = input('How many numbers would you like: ')
+    for x in range(int(NumberInput)):
+        number = random.randint(0,9)
+        numbers += str(number)
+    return numbers
+
+print(getWords()+getSpecialChars()+getNumbers())
